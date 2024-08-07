@@ -5,4 +5,8 @@
     color: white;
     background-color: black;
   }
+
+  &.selected td {
+    background-color: red;
+  }
 }

@@ -1,10 +1,13 @@
-import type { Currency } from "../data/currencies";
+import type { Currency as ICurrency } from "../data/currencies";
 import "./Currency.scss";
 
-export default function Currency({ currency, onSelected }: Props) {
+export default function Currency({ currency, selectedCurrency, onSelected }: Props) {
+
+  const isSelected = selectedCurrency?.code === currency.code ? " selected" : "";
+
   return (
     <>
-      <tr onClick={onSelected} className="currency">
+      <tr onClick={onSelected} className={`currency ${isSelected}`} >
         <td>{currency.description}</td>
         <td>{round(currency.rate)}</td>
       </tr>
@@ -18,6 +21,7 @@ export default function Currency({ currency, onSelected }: Props) {
 }
 
 interface Props {
-  currency: Currency;
+  currency: ICurrency;
+  selectedCurrency?: ICurrency;
   onSelected: () => void;
 }

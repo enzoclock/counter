@@ -1,7 +1,7 @@
 import currencies, { type  Currency as ICurrency } from "../data/currencies"
 import Currency from "./Currency"
 
-export default function Currencies({ onSelected }: Props) {
+export default function Currencies({ onSelected, selectedCurrency }: Props) {
   
   return (
     <section>
@@ -24,6 +24,7 @@ export default function Currencies({ onSelected }: Props) {
     return currencies.map(currency => 
       <Currency
         currency={currency}
+        selectedCurrency={selectedCurrency}
         onSelected={() => onSelected(currency)}
         key={currency.code}
       />
@@ -33,4 +34,5 @@ export default function Currencies({ onSelected }: Props) {
 
 interface Props {
   onSelected: (currency: ICurrency) => void;
+  selectedCurrency?: ICurrency;
 }
