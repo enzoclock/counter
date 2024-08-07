@@ -1,0 +1,8 @@
+.currency {
+  cursor: pointer;
+
+  &:hover td {
+    color: white;
+    background-color: black;
+  }
+}
