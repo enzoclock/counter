@@ -14,7 +14,7 @@ export default function App() {
       <main>
         {selectedCurrency && <Result currency={selectedCurrency}/>}
   
-        <Currencies onSelected={(currency: Currency) => setSelectedCurrency(currency)}/>
+        <Currencies onSelected={setSelectedCurrency}/>
       </main>
     </>
   );
